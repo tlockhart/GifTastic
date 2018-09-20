@@ -1,0 +1,45 @@
+<html>
+    <header>
+        <meta charset="UTF-8">
+        <title>Karatiphy</title>
+
+        <!--Reset-->
+        <link rel="stylesheet" href="assets/css/reset.css">
+        
+        <!--Bootstrap library-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+        <!--Custom links-->
+        <link rel="stylesheet" href="assets/css/style.css">
+    </header>
+    <body>
+        <div class = "container-fluid">
+            <div class = "row">
+                <div class = "col-12 nav-wrapper">
+                    <nav>
+                        <h1 class = "text-center">Karatiphy</h1>
+                    </nav>
+                </div><!--col-->
+            </div><!--row-->
+            <div class = "row">
+                <div class = "col-8">
+                    <div id="giphy-view"></div>
+                </div><!--Gifs-->
+                <div class = "col-4">
+                    <form id = "giphy-form">
+                        <label for ="giphy-input">Add a Fighter:</label>
+                        <input type = "text" id="giphy-input"><br>
+
+                        <!--Button triggers new movie to be added-->
+                        <input id="add-giphy" type ="submit" value="Add a Fighter">
+                    </form>
+                    <div id="buttons-view"></div>
+                </div><!--buttons-->
+            </div><!--row-->
+        </div><!--container-->
+        <!--JQuery-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!--Custom JS-->
+        <script type="text/javascript" src = "assets/javascript/app.js"></script>
+    </body>
+</html>
