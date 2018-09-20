@@ -5,33 +5,21 @@
   /*src: url(../fonts/get_schwifty__a_rick_and_morty_font_by_jonizaak-dajw4u8.ttf);*/
     src: url(../fonts/edosz.ttf); 
 }
-body{
+/*body{
     background: linear-gradient(0deg, rgba(0,0,0,.5), rgba(0,0,0,.5)),url(../images/dojo.background_edited4.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    color: white;
-}
-/*body{
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size:cover;
-    background-attachment:fixed;
-    background:url(../images/dojo.background_edited3.png);
-}*//*
-body{
-    height:100%;
-    min-height: 100%;
-    text-align:center;
-}
-#bgfix{
-    background:url(../images/dojo.background_980.jpg) no-repeat center center fixed;
-    width: 100%; height: 100%;
-    z-index:-1;
+
 }*/
+/*.image-display{
+    float: left;
+}*/
+p,.data-inline{
+    display:inline;
+}
+
 h1{
     font-family:'edo', sans-serif;
     color: black;
