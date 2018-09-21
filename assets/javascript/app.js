@@ -4,12 +4,13 @@ var gifs = ["Bruce Lee", "Chuck Norris", "Li Lianjie", "Wesley Snipes"];
 // displayGiphyInfo function re-renders the HTML to display the appropriate content
 function displayGiphyInfo() {
 
-  console.log("Button Source = "+$(this).attr('src'));
-  var giphy = $(this).attr("data-name");
-  var genre = "+Karate";
+  //console.log("Button Source = "+$(this).attr('src'));
+  var giphy = $(this).attr("data-name").trim().replace(' ', '+AND+');
+  console.log("NAME OF FIGHTER = "+giphy);
+  /*var genre = "+Karate";
   var action1 ="kick";
-  var action2 ="punch";
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphy + genre+/*"AND" + genre + "AND" + action1+"AND"+action2+*/ "&api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M";
+  var action2 ="punch";*/
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphy + "&api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&limit=10";
 
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Yun+And+Fat+And+Chow&limit=10";*/
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Donnie+AND+Yen&limit=10";*/
@@ -30,7 +31,7 @@ function displayGiphyInfo() {
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Jet+AND+Li&limit=10";*/
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=karate+AND+Jet+AND+Li&limit=10";*/
 
-  queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Chuck+AND+Norris&limit=10";
+  /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Chuck+AND+Norris&limit=10";*/
  /* queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=karate+AND+Chuck+AND+Norris&limit=10";*/
   // Creates AJAX call for the specific movie button being clicked
   $.ajax({
@@ -156,7 +157,7 @@ $(document).on("click", ".giphy", pauseToggle);
 
 function pauseToggle(){
   var $state = $(this).attr('data-state');
-  console.log("*IN Toggle State = "+$state);
+  //console.log("*IN Toggle State = "+$state);
 
   // =============================================
 
