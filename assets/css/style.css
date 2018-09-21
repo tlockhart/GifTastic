@@ -5,20 +5,23 @@
   /*src: url(../fonts/get_schwifty__a_rick_and_morty_font_by_jonizaak-dajw4u8.ttf);*/
     src: url(../fonts/edosz.ttf); 
 }
-/*body{
-    background: linear-gradient(0deg, rgba(0,0,0,.5), rgba(0,0,0,.5)),url(../images/dojo.background_edited4.png) no-repeat center center fixed;
+body{
+    background: linear-gradient(0deg, rgba(0,0,0, .5), rgba(0,0,0,.5)),url(../images/dojo.background_edited4.png) no-repeat center center fixed;*/
+    /*background: url(../images/dojo.background_edited4.png) no-repeat center center fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-
-}*/
+}
 /*.image-display{
     float: left;
 }*/
-p,.data-inline{
+/*p,.data-inline{
     display:inline;
 }
+form, #buttons-view{
+    display: inline-block;
+}*/
 
 h1{
     font-family:'edo', sans-serif;
@@ -31,6 +34,12 @@ h1{
     margin:0;
     padding:0.2%;
    /* margin-top:3.75rem;*/
+}
+img{
+    /*margin:10%;*/
+}
+p{
+    font-family: 'BenchNine', sans-serif;
 }
 .nav-wrapper{
     background-color:rgba(182,53,47,.5);
