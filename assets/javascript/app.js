@@ -1,5 +1,5 @@
 // Initial array of gifs
-var gifs = ["Bruce Lee", "Chuck Norris", "Li Lianjie", "Wesley Snipes"];
+var gifs = ["Bruce Lee", "Chuck Norris", "Li Lianjie", "Jackie Chan", "Jean Claude", "Jim Kelly", "Tony Jaa", "Donnie Yen", "Yun Fat Chow"];
 
 // displayGiphyInfo function re-renders the HTML to display the appropriate content
 function displayGiphyInfo() {

@@ -21,12 +21,13 @@ label{
     /*background-color:rgba(182,53,47,.5);*/
 }
 #add-giphy, button{
-    opacity: 0.6;
+   /* opacity: 0.6;*/
     font-family: 'BenchNine', sans-serif;
     font-weight: bold;
     font-size: 1.25rem;
     color: black;
     background-color:rgba(182,53,47,.5);
+    /*background-color:rgba(182,53,47);*/
 }
 
  #giphy-form{
