@@ -19,7 +19,7 @@ label{
     font-size: 1.25rem;
     color: black;
 }
-#add-giphy, button{
+#add-fighter, button{
     font-family: 'BenchNine', sans-serif;
     font-weight: bold;
     font-size: 1.25rem;
@@ -30,7 +30,7 @@ label{
         position:relative;
     }
 
- #giphy-form{
+ #add-fighter-form{
      position: absolute;
      bottom:0.625rem;
      right:3.125rem;
@@ -42,11 +42,7 @@ h1{
     margin:0;
     padding:0.2%;
 }
-/*.giphy{
-    
-    margin:0 !important;
-}*/
-.if-button{
+.new-gif-button{
     margin-right:.5%;
     margin-bottom: 1.5rem;
 }
@@ -55,12 +51,12 @@ p{
     font-weight: bold;
     font-size: 1.25rem;
     text-transform: uppercase;
-    margin-left:1.5rem;
+    /*margin-left:1.5rem;*/
     
     margin-bottom: 0.3125rem;
     color: #F4F4F4;
 }
-button:hover, #add-giphy:hover{
+button:hover, #add-fighter:hover{
     color: #944D3F;
     background-color: #F4F4F4;
 }
@@ -79,6 +75,3 @@ button:hover, #add-giphy:hover{
 #gifs-appear-here{
     margin-top:125px;
 }
-/*.carousel-item > img{
-   margin-left : -20px;
-}*/

@@ -65,12 +65,12 @@ function displayGiphyInfo() {
       /*$fighterDiv.addClass('data-inline');*/
   
       //Make a paragraph to store the rating of the image
-      var $p = $('<p>');
+      var $p = $('<p class="text-center">');
       /*$p.addClass('d-inline');*/
   
       //Set the inner text of the paragraph to the rating of the image in results[i]
       var rating = results[i].rating;
-      $p.text(rating);
+      $p.text("Rating: "+rating);
   
       //Make an image tag with jQuery and store it in a variable named fighterImage.
       var $fighterImage = $('<img class="d-block w-100">');
@@ -80,7 +80,7 @@ function displayGiphyInfo() {
       $fighterImage.attr('data-animate', results[i].images.fixed_height.url);
       $fighterImage.attr('data-still', results[i].images.fixed_height_still.url);
       $fighterImage.attr('data-state', 'still');
-      $fighterImage.addClass('giphy');
+      $fighterImage.addClass('giphy-image');
 
       /*$fighterImage.addClass('image-display');*/
      /* $fighterImage.addClass('mx-4 mb-4');*/
@@ -112,8 +112,8 @@ function renderButtons(){
         //Then dynamically generate buttons for each GIF in the array
         var $gifButton = $('<button>');
 
-        //Adding a class of newGif-button to the new button
-        $gifButton.addClass('newGif-button');
+        //Adding a class of new-gif-button to the new button
+        $gifButton.addClass('new-gif-button');
 
         //Adding a data-attribute
         $gifButton.attr('data-name', gifs[i]);
@@ -128,11 +128,11 @@ function renderButtons(){
 }
 
 //Event handler that adds new gifs to the array and call renderButtons to re render all buttons
-$('#add-giphy').on('click', function(event){
+$('#add-fighter').on('click', function(event){
     event.preventDefault();
 
     //Grab the input from the textbox
-    var $gif = $('#giphy-input').val().trim();
+    var $gif = $('#add-fighter-input').val().trim();
    if($gif.replace(/\s/g,'') != ''){
       //console.log("New Gif = "+$gif);
 
@@ -146,13 +146,13 @@ $('#add-giphy').on('click', function(event){
 });
 
  // Adding click event listeners to all elements with a class of "gif"
- $(document).on("click", ".newGif-button", displayGiphyInfo);
+ $(document).on("click", ".new-gif-button", displayGiphyInfo);
 
  /******************************************
  * toggle Paused/UnPaused
  * ****************************************/
-/*$(document).on("click", ".giphy", pauseToggle);*/
-$('#gifs-appear-here').on("click", ".giphy", pauseToggle);
+/*$(document).on("click", ".giphy-image", pauseToggle);*/
+$('#gifs-appear-here').on("click", ".giphy-image", pauseToggle);
 
  // Calling the renderButtons function to display the intial buttons
  renderButtons();
