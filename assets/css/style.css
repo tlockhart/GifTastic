@@ -25,15 +25,19 @@ label{
     font-family: 'BenchNine', sans-serif;
     font-weight: bold;
     font-size: 1.25rem;
-    color: black;
+    color: #F4F4F4;
     background-color:rgba(182,53,47,.5);
     /*background-color:rgba(182,53,47);*/
 }
+.nav-wrapper{
+    /*background-color:rgba(182,53,47,.5);*/
+        position:relative;
+    }
 
  #giphy-form{
      position: absolute;
-     bottom:100%;
-     right:10%;
+     bottom:0.625rem;
+     right:3.125rem;
  }
 h1{
     font-family:'edo', sans-serif;
@@ -52,20 +56,27 @@ h1{
     font-weight: bold;
     font-size: 1.625rem;
 }*/
+.giphy{
+    border: 1px solid #F4F4F4;
+}
 .gif{
     margin-right:.5%;
-}
-img{
-    /*margin:10%;*/
+    margin-bottom: 1.5rem;
 }
 p{
     font-family: 'BenchNine', sans-serif;
     font-weight: bold;
-    font-size: 1.625rem;
+    font-size: 1.25rem;
     text-transform: uppercase;
-    margin-left:5%;
+    margin-left:1.5rem;
+    
+    margin-bottom: 0.3125rem;
+    color: #F4F4F4;
+    /*color: #944D3F;*/
+    /*outline-color: white;*/
+    /*-webkit-text-stroke: .001px #F4F4F4;*/
 }
-.nav-wrapper{
-/*background-color:rgba(182,53,47,.5);*/
-    position:relative;
+button:hover, #add-giphy:hover{
+    color: #944D3F;
+    background-color: #F4F4F4;
 }

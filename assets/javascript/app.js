@@ -1,15 +1,11 @@
 // Initial array of gifs
-var gifs = ["Bruce Lee", "Chuck Norris", "Li Lianjie", "Jackie Chan", "Jean Claude", "Jim Kelly", "Tony Jaa", "Donnie Yen", "Yun Fat Chow"];
+var gifs = ["Bruce Lee", "Chuck Norris", "Jet Li", "Jackie Chan", "Jean Claude", "Jim Kelly", "Tony Jaa", "Donnie Yen", "Yun Fat Chow"];
 
 // displayGiphyInfo function re-renders the HTML to display the appropriate content
 function displayGiphyInfo() {
 
-  //console.log("Button Source = "+$(this).attr('src'));
   var giphy = $(this).attr("data-name").trim().replace(' ', '+AND+');
-  console.log("NAME OF FIGHTER = "+giphy);
-  /*var genre = "+Karate";
-  var action1 ="kick";
-  var action2 ="punch";*/
+  //console.log("NAME OF FIGHTER = "+giphy);
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphy + "&api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&limit=10";
 
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Yun+And+Fat+And+Chow&limit=10";*/
@@ -40,10 +36,10 @@ function displayGiphyInfo() {
   }).then(function(response) {
     /*Step1: Query Giphy and return result in AJAX Response*/
    /*Option1: Log response*/
-   console.log(giphy);
-    console.log(response);
+   //console.log(giphy);
+    //console.log(response);
   /*Option2: Log queryURL*/
-    console.log(queryURL);
+    //console.log(queryURL);
   
   //Dump response information to screen
  // $('#gifs-appear-here').text(JSON.stringify(response));
@@ -60,7 +56,7 @@ function displayGiphyInfo() {
     var resultsTitle = results[i].title;
    // if(resultsTitle.length)
    var isTitleBlank = resultsTitle.replace(/\s/g,'') === '';
-    console.log("Title = "+resultsTitle+" Title equals nothing: "+isTitleBlank);
+    //console.log("Title = "+resultsTitle+" Title equals nothing: "+isTitleBlank);
     //Make a div to store the fighter image (Filter Images without title)
     if(!isTitleBlank){
       var $fighterDiv = $('<div>');
@@ -133,13 +129,16 @@ $('#add-giphy').on('click', function(event){
 
     //Grab the input from the textbox
     var $gif = $('#giphy-input').val().trim();
-    console.log("New Gif = "+$gif);
+   if($gif.replace(/\s/g,'') != ''){
+      //console.log("New Gif = "+$gif);
 
     //Push the new gif onto the array
     gifs.push($gif);
 
     //Rerender Buttons
     renderButtons();
+    }
+    
 });
 
  // Adding click event listeners to all elements with a class of "gif"
@@ -157,7 +156,6 @@ $(document).on("click", ".giphy", pauseToggle);
 
 function pauseToggle(){
   var $state = $(this).attr('data-state');
-  //console.log("*IN Toggle State = "+$state);
 
   // =============================================
 
@@ -170,7 +168,7 @@ function pauseToggle(){
     {
       returnValue = true;
     }
-    console.log("dataState is = "+'STILL');
+    //console.log("dataState is = "+'STILL');
     return returnValue;
   }
   var state = isDataStateStill();
