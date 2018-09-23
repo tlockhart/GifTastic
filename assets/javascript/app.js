@@ -1,6 +1,6 @@
 // Initial array of gifs
 var gifs = ["Bruce Lee", "Chuck Norris", "Jet Li", "Jackie Chan", "Jean Claude", "Jim Kelly", "Tony Jaa", "Donnie Yen", "Yun Fat Chow"];
-
+$('#gifs-appear-here').hide();
 // displayGiphyInfo function re-renders the HTML to display the appropriate content
 function displayGiphyInfo() {
 
@@ -11,7 +11,7 @@ function displayGiphyInfo() {
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Yun+And+Fat+And+Chow&limit=10";*/
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Donnie+AND+Yen&limit=10";*/
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Tony+AND+Jaa&limit=10";*/
-  /*********************************Karate*********************************** */
+  
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=Jean+AND+claude&limit=10";*/
   /*queryURL = "https://api.giphy.com/v1/gifs/search?api_key=WcTKDkD6i55rjVcA6LUFToruFyIIGJ9M&q=karate+AND+Jean+AND+claude&limit=10";*/
 
@@ -48,7 +48,8 @@ function displayGiphyInfo() {
     * Step2:DISPLAY ALL IMAGES AND RATINGS
    **************************************/
   //Empty Image Div before adding new Images
-  $('#gifs-appear-here').empty();
+  /*$('#gifs-appear-here').empty();*/
+  $('.carousel-inner').empty();//empty images
 
    var results = response.data;
    for(var i = 0; i < results.length; i++){
@@ -59,7 +60,8 @@ function displayGiphyInfo() {
     //console.log("Title = "+resultsTitle+" Title equals nothing: "+isTitleBlank);
     //Make a div to store the fighter image (Filter Images without title)
     if(!isTitleBlank){
-      var $fighterDiv = $('<div>');
+      var $fighterDiv = $('<div class="carousel-item">');
+      
       /*$fighterDiv.addClass('data-inline');*/
   
       //Make a paragraph to store the rating of the image
@@ -71,7 +73,7 @@ function displayGiphyInfo() {
       $p.text(rating);
   
       //Make an image tag with jQuery and store it in a variable named fighterImage.
-      var $fighterImage = $('<img>');
+      var $fighterImage = $('<img class="d-block w-100">');
   
       //Set the image's src to results[i]'s fixed_height.url.
       $fighterImage.attr('src', results[i].images.fixed_height_still.url);
@@ -81,7 +83,7 @@ function displayGiphyInfo() {
       $fighterImage.addClass('giphy');
 
       /*$fighterImage.addClass('image-display');*/
-      $fighterImage.addClass('mx-4 mb-4');
+     /* $fighterImage.addClass('mx-4 mb-4');*/
   
       //Append the p variable to the fighterDiv var
       $fighterDiv.append($p);
@@ -90,10 +92,12 @@ function displayGiphyInfo() {
       $fighterDiv.append($fighterImage);
   
       //Prepend the fighterDiv variable to the element with an id of gifs-appear-here.
-      $('#gifs-appear-here').prepend($fighterDiv);
+      //$('#gifs-appear-here').prepend($fighterDiv);
+      $('.carousel-inner').prepend($fighterDiv);
     }
    }
-
+   $('.carousel-item').first().addClass('active');//show first carousel item
+   $('#gifs-appear-here').show();
 
   });
 }
@@ -108,8 +112,8 @@ function renderButtons(){
         //Then dynamically generate buttons for each GIF in the array
         var $gifButton = $('<button>');
 
-        //Adding a class of gif to the button
-        $gifButton.addClass('gif');
+        //Adding a class of newGif-button to the new button
+        $gifButton.addClass('newGif-button');
 
         //Adding a data-attribute
         $gifButton.attr('data-name', gifs[i]);
@@ -142,12 +146,13 @@ $('#add-giphy').on('click', function(event){
 });
 
  // Adding click event listeners to all elements with a class of "gif"
- $(document).on("click", ".gif", displayGiphyInfo);
+ $(document).on("click", ".newGif-button", displayGiphyInfo);
 
  /******************************************
  * toggle Paused/UnPaused
  * ****************************************/
-$(document).on("click", ".giphy", pauseToggle);
+/*$(document).on("click", ".giphy", pauseToggle);*/
+$('#gifs-appear-here').on("click", ".giphy", pauseToggle);
 
  // Calling the renderButtons function to display the intial buttons
  renderButtons();
