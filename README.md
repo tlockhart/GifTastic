@@ -17,8 +17,8 @@ In order to run the app, you will need to run the index.html file on a computer 
 1. Bootstrap
 1. JQuery
 1. JavaScript
-1. CSS
-1. HTML
+1. CSS3
+1. HTML5
 ## Use
 This repo is available for public non-commercial use only.
 ## Goal
