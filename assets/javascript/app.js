@@ -94,13 +94,15 @@ function displayGiphyInfo() {
       //Prepend the fighterDiv variable to the element with an id of gifs-appear-here.
       //$('#gifs-appear-here').prepend($fighterDiv);
       $('.carousel-inner').prepend($fighterDiv);
-    }
-   }
+    }//If title blank
+   }//for loop
    $('.carousel-item').first().addClass('active');//show first carousel item
    $('#gifs-appear-here').show();
 
-  });
-}
+  });//thenable
+  //clear input field
+ $('#add-fighter-input').val('');
+}//displayGiphyInfo
 
 //Display Giphy Data
 function renderButtons(){
@@ -109,6 +111,7 @@ function renderButtons(){
 
     //Loop through the array of gifs
     for(var i =0; i< gifs.length; i++){
+
         //Then dynamically generate buttons for each GIF in the array
         var $gifButton = $('<button>');
 
@@ -125,6 +128,7 @@ function renderButtons(){
         $('#buttons-view').append($gifButton);
 
     }//for
+    $('#add-fighter-input').val('');
 }
 
 //Event handler that adds new gifs to the array and call renderButtons to re render all buttons
@@ -132,16 +136,42 @@ $('#add-fighter').on('click', function(event){
     event.preventDefault();
 
     //Grab the input from the textbox
-    var $gif = $('#add-fighter-input').val().trim();
-   if($gif.replace(/\s/g,'') != ''){
-      //console.log("New Gif = "+$gif);
+    var $userMovieName = $('#add-fighter-input').val().trim();
+    //Check for duplicate Movie Titles
+    /*************************************************** */
+    //console.log($userMovieName);
+    var dupMovie = false;
+    /*****************************************************/
+    for(var i =0; i< gifs.length; i++){
+      
+      var lowerCasePredefinedGifs = gifs[i].toLowerCase();
+      var lowercaseUserDefinedGifs = $userMovieName.toLowerCase();
 
-    //Push the new gif onto the array
-    gifs.push($gif);
-
-    //Rerender Buttons
-    renderButtons();
+      //Check for duplicate entries
+      if(lowerCasePredefinedGifs === lowercaseUserDefinedGifs)
+      {
+        //console.log("Predefined Movie Titles = "+lowerCasePredefinedGifs);
+        //console.log("Userdefined Movie Titles = "+lowercaseUserDefinedGifs);
+        dupMovie = true;
+      }
+    }//for
+    
+    //If duplicate entry found dislay duplicate entry message
+    if(dupMovie){
+      $('#add-fighter-input').val('Duplicate entry');
+      //$('.carousel-inner').empty();//empty images
     }
+    /*****************************************************/
+    //If entry not duplicate and not space add the entry into the array
+    else if($userMovieName.replace(/\s/g,'') != ''){
+      //console.log("New Gif = "+$userMovieName);
+
+      //Push the new gif onto the array
+      gifs.push($userMovieName);
+
+      //Rerender Buttons
+      renderButtons();
+    }//if the name is blank
     
 });
 
@@ -156,8 +186,6 @@ $('#gifs-appear-here').on("click", ".giphy-image", pauseToggle);
 
  // Calling the renderButtons function to display the intial buttons
  renderButtons();
- 
-
 
 function pauseToggle(){
   var $state = $(this).attr('data-state');
