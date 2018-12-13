@@ -1,4 +1,6 @@
-# GifTastic
+<h1 align="center">GifTastic</h1>
+<p align="center"><kbd><img src ="assets/images/karatiphy.png" /></kbd></p><br/>
+
 This repo is an interactive Giphy App.  The App interfaces with the Giphy API to populate selected gifs.  First a list of preset buttons are created that display a famous martial artists.  When a button is clicked, it will display a carousel of 10 images related to the artist. The images are initially still images, but when clicked, the images will animate.  To stop the animation click the image again.  The user can also enter their own artist by typing their name into the input field and clicking the "Add Fighter" button.  A new button will be created in the button display.  When clicked, the carousel will populate with ten images of the selected artist.  The app displays the following:
 1. Prepopulated Buttons
 1. User Input Field
